@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+    </script>
+</head>
+<body>
+
+
+<p>
+    <br>
+    <button onclick="getExam()">获取数据</button>
+</p>
+<p>
+    <textarea name="" id="textShowID" cols="30" rows="5">显示数据JSON</textarea>
+
+</p>
+<p> 存储json数据</p>
+<textarea name="" id="textID" cols="30" rows="5">10</textarea>
+<p>
+
+    <br>
+    <button onclick="saveAnswer()">存储数据</button>
+</p>
+
+
+
+<script type="text/javascript">
+
+    function getExam() {
+        Native.getExam("{\"parameter\": {\"callback\": \"getExamCallback\"}}");
+    }
+
+<!--获取量表 回调-->
+    function getExamCallback(examJson) {
+     textShowID.value =examJson;
+         console.log("----function getExamCallback:"+examJson);
+    }
+
+<!--保存答案-->
+    function saveAnswer() {
+    var value = textID.value;
+          Native.saveCaseAnswer("{\"parameter\": {\"callback\": \"saveAnswerCallback\",\"answer\": "+value+"}}");
+    }
+
+<!--保存答案回调-->
+    function saveAnswerCallback(result) {
+
+      console.log("----function saveAnswerCallback  result:"+result);
+    }
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

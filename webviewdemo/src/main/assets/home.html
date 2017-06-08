@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<p>获取json数据</p>
+
+<p>
+    <button onclick="getJson()">获取数据</button>
+</p>
+<p>显示结果：</p>
+
+<p>
+    <textarea name="" id="textShowID" cols="30" rows="5">显示数据JSON</textarea>
+
+</p>
+
+
+</p>
+<div style="border: 1px;width:100%;background: #ccc;height: 1px"></div>
+<p>
+
+<p> 存储json数据</p>
+<textarea name="" id="textID" cols="30" rows="5">10</textarea>
+
+<p>
+    <button onclick="saveJson()">存储数据</button>
+</p>
+</p>
+<div style="border: 1px;width:100%;background: #ccc;height: 1px"></div>
+
+<script type="text/javascript">
+
+    //获取json数据
+    function getJson(){
+        var json=Native.getExam()
+        textShowID.value =json;
+    }
+
+    //存储json数据
+    function saveJson(){
+       var value = textID.value;
+        console.log(value);
+        var path=Native.saveCaseAnswer(value);
+    }
+
+</script>
+
+</body>
+</html>
