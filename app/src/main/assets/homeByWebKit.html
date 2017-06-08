@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+    </script>
+</head>
+<body>
+
+<p>
+    准备测评
+</p>
+
+<p>
+    获取量表
+    <br>
+    <button onclick="getExam()">获取量表数据</button>
+</p>
+
+
+<p>
+    保存答案
+    <br>
+    <button onclick="saveAnswer()">保存答案数据</button>
+</p>
+
+<p>
+    刷新
+    <br>
+    <button onclick="reloadPage()">刷新页面</button>
+</p>
+
+
+<script type="text/javascript">
+
+    function getExam() {
+        Native.getExam("{\"parameter\": {\"callback\": \"getExamCallback\"}}");
+    }
+
+<!--获取量表 回调-->
+    function getExamCallback(examJson) {
+         console.log("----function getExamCallback:"+examJson);
+    }
+
+<!--保存答案-->
+    function saveAnswer() {
+          Native.saveCaseAnswer("{\"parameter\": {\"callback\": \"saveAnswerCallback\",\"answer\": \"--caseAnswer---\"}}");
+    }
+
+<!--保存答案回调-->
+    function saveAnswerCallback(result) {
+
+      console.log("----function saveAnswerCallback  result:"+result);
+    }
+
+
+    function reloadPage() {
+
+        location.reload();
+    }
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
